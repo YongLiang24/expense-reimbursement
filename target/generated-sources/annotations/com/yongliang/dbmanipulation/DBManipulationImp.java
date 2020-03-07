@@ -34,6 +34,7 @@ public class DBManipulationImp implements DBManipulationDao{
 			int checkUpdate =preSt.executeUpdate();
 			System.out.println("UpdateQuery status:" +checkUpdate);
 		} catch (SQLException e) {
+			System.out.println("update failed");
 		}
 		
 	}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+
+    
+    <RollingFile name="RollingFile" fileName="C:\Users\yongl\Documents\ERSystemLog\Rolling.txt"
+                 filePattern="C:\Users\yongl\Documents\ERSystemLog\app-%d{MM-dd-yyyy}-%i.log.txt">
+               
+      <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <SizeBasedTriggeringPolicy size="100 MB"/>
+      </Policies>
+      
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Root level="all">
+      <AppenderRef ref="RollingFile"/>
+    </Root>
+  </Loggers>
+</Configuration>

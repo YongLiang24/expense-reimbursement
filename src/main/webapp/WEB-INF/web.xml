@@ -29,6 +29,18 @@
   	<description></description>
   	<servlet-class>com.yongliang.myservlet.EmpLoginServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>EmployeeHome</servlet-name>
+  	<display-name>EmployeeHome</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.myservlet.EmployeeHome</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EditInfoServlet</servlet-name>
+  	<display-name>EditInfoServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.myservlet.EditInfoServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>MyServlet</servlet-name>
   	<url-pattern>/MS</url-pattern>
@@ -44,5 +56,13 @@
   <servlet-mapping>
   	<servlet-name>EmpLoginServlet</servlet-name>
   	<url-pattern>/ELS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EmployeeHome</servlet-name>
+  	<url-pattern>/EH</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EditInfoServlet</servlet-name>
+  	<url-pattern>/EIS</url-pattern>
   </servlet-mapping>
 </web-app>

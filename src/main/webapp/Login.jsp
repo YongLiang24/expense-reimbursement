@@ -16,14 +16,13 @@
       <br/><br/><br/>
 <div class="card border-dark mb-3 mx-auto shadow p-3 mb-5 bg-white rounded" style="max-width: 18rem;" id="login-card">
     <div class="card-body text-dark mx-auto">
-     <form action="ELS" method="POST">
+     <form action="EH" method="POST">
          <label for="email" class="login-input" >Email address</label>
-         <input name="email" type="email" id="email" class="form-control" placeholder="Email" required>
+         <input name="email" type="text" id="email" class="form-control" required>
          <label  for="password" class="login-input">Password</label>
          <input name="password" type="password" id="password"class="form-control" required placeholder="Password"><br/>
          <label for="emp-type" id="user-dropdown">Log in as:</label>
          <select name="loginSelect" id="emp-type" required>
-             <option value="default" selected disabled hidden>Select an option</option>
              <option  value="employee">Employee</option>
              <option  value="manager">Manager</option>
          </select><hr/>
