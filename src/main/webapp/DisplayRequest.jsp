@@ -54,8 +54,8 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                     isEmptyList =false;
                     %>
                     <tr>
-                    	  <th scope="row"><%= index %>.</td>
-                          <td><%=reimb.getDateTime() %></td>
+                    	  <th scope="row" ><%= index %>.</td>
+                          <td title="Reason: <%= reimb.getExpenseDescription()%>"><%=reimb.getDateTime() %></td>
                           <td><%= reimb.getExpenseCost()%></td>
                           <td><%= reimb.getReimbAmount()%></td>
                           <td><%= reimb.getExpenseType()%></td>
