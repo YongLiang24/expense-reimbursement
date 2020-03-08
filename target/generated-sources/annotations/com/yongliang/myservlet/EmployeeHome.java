@@ -1,6 +1,7 @@
 package com.yongliang.myservlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -31,6 +32,8 @@ public class EmployeeHome extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//get login information from user inputs
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
 		String loginSelect = request.getParameter("loginSelect");
 		String userEmail = request.getParameter("email");
 		String userPass = request.getParameter("password");
@@ -39,7 +42,7 @@ public class EmployeeHome extends HttpServlet {
 		ArrayList<Manager> managerList = (ArrayList)session.getAttribute("managerAll");
 		switch(loginSelect) {
 		case "employee":
-			
+			boolean isLogin = false;
 			for(Employee emp: empList) {
 				if(emp.getEmail().toLowerCase().equals(userEmail.toLowerCase()) && emp.getEmpPass().equals(userPass)) {
 					System.out.println("Login success");
@@ -47,9 +50,12 @@ public class EmployeeHome extends HttpServlet {
 					Employee emp1 = new Employee(emp.getEmpId(), emp.getEmpPass(), emp.getFullName(), emp.getTelephone(), emp.getEmail(),emp.getStreet(),emp.getCity(),emp.getState(),emp.getZipcode(),emp.getCountry());
 					session.setAttribute("empInfo", emp1);
 					request.getRequestDispatcher("./Employee.jsp").forward(request, response);
-				}else {
-					request.getRequestDispatcher("./LoginFail.jsp").forward(request, response);
+					isLogin = true;
 				}
+			}
+			if(isLogin ==false) {
+				out.print("<div style=\"text-align:center;\"><h2>Incorrect username or password</h2> "
+						+ "<a href='http://localhost:8080/Project01'>Go Back</a></div>");
 			}
 			break;
 		case "manager":
@@ -63,7 +69,6 @@ public class EmployeeHome extends HttpServlet {
 					request.getRequestDispatcher("./Manager.jsp").forward(request, response);
 				}
 				else {
-					request.getRequestDispatcher("./LoginFail.jsp").forward(request, response);
 				}
 			}
 		break;

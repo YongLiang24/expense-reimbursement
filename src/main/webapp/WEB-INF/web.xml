@@ -41,6 +41,12 @@
   	<description></description>
   	<servlet-class>com.yongliang.myservlet.EditInfoServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ReimburseServlet</servlet-name>
+  	<display-name>ReimburseServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.myservlet.ReimburseServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>MyServlet</servlet-name>
   	<url-pattern>/MS</url-pattern>
@@ -64,5 +70,9 @@
   <servlet-mapping>
   	<servlet-name>EditInfoServlet</servlet-name>
   	<url-pattern>/EIS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReimburseServlet</servlet-name>
+  	<url-pattern>/RBS</url-pattern>
   </servlet-mapping>
 </web-app>

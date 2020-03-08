@@ -52,7 +52,6 @@ public class EmpLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		response.setContentType("text/html");
 //		PrintWriter out=response.getWriter();
-		request.getRequestDispatcher("./Login.jsp").forward(request, response);
 		//retrieving data from database, then add each row to employee and manager objects
 		try {
 			 conn = DBConnection.getInstance().getConnection();
@@ -87,11 +86,13 @@ public class EmpLoginServlet extends HttpServlet {
 		session.setAttribute("managerAll", managerList);
 
 		logger.info("adds employee and manager lists to session variables");
-//		try {
-//			conn.close();
-//		} catch (SQLException e) {
-//		}
+		try {
+			conn.close();
+		} catch (SQLException e) {
+		}
+		
 
+		request.getRequestDispatcher("./Login.jsp").forward(request, response);
 		
 	}
 

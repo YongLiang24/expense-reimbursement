@@ -5,24 +5,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <%@ include file="ExternalLinks.jsp" %>
-<title>Insert title here</title>
+ <link rel="stylesheet" href="Style.css">
+<title>ER-Solutions</title>
 </head>
-<body>
+<body class="body_">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-        <a class="navbar-brand" id="brand">ER-System</a>
+        <a class="navbar-brand" id="brand">ER-Solutions</a>
     	</div>
       </nav>
-      <br/><br/><br/>
-<div class="card border-dark mb-3 mx-auto shadow p-3 mb-5 bg-white rounded" style="max-width: 18rem;" id="login-card">
+      <br/><br/>
+<div class="card mx-auto  body_" id="login-card">
     <div class="card-body text-dark mx-auto">
      <form action="EH" method="POST">
-         <label for="email" class="login-input" >Email address</label>
-         <input name="email" type="text" id="email" class="form-control" required>
-         <label  for="password" class="login-input">Password</label>
-         <input name="password" type="password" id="password"class="form-control" required placeholder="Password"><br/>
-         <label for="emp-type" id="user-dropdown">Log in as:</label>
-         <select name="loginSelect" id="emp-type" required>
+         <label for="email" class="login-input font-weight-bold" >Account Name</label>
+         <input name="email" type="text" id="email" class="form-control bg-light" required placeholder="account name">
+         <label  for="password" class="login-input font-weight-bold">Password</label>
+         <input name="password" type="password" id="password"class="form-control bg-light" required placeholder="password"><br/>
+         <label for="emp-type" id="user-dropdown" class="font-weight-bold">Log in as:</label>
+         <select name="loginSelect" id="emp-type" required class="bg-light rounded">
              <option  value="employee">Employee</option>
              <option  value="manager">Manager</option>
          </select><hr/>

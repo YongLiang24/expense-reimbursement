@@ -1,0 +1,31 @@
+#brand{
+    font-style: italic;
+}
+
+#main-content{
+    margin-top: 55px;
+}
+
+#main-home{
+	margin-top: 115px;
+}
+
+.body_{
+    background-image: linear-gradient(#fff, #2C5364);
+    background-repeat: no-repeat;
+  	background-attachment: fixed;"
+}
+
+/* .card:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+} */
+
+.login-input, .time{
+    text-align: center;
+}
+
+#logout{
+	color:white;
+	font-style: italic;
+}

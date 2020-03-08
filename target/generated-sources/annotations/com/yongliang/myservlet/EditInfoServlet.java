@@ -55,7 +55,7 @@ public class EditInfoServlet extends HttpServlet {
 		//update employee information from employee table
 		String empUpdateQuery = "update employees set full_name='"+fullname+"', telephone='"+phone+"', street='"+street+"', city='"+city+"', state='"+state+"', zip_code='"+zip+"', country='"+country+"' where employee_id="+empId;
 		DBManipulationImp empUpdate = new DBManipulationImp();
-		empUpdate.updateQuery(conn, empUpdateQuery);		
+		empUpdate.updateQuery(conn, empUpdateQuery);
 		request.getRequestDispatcher("./Employee.jsp").forward(request, response);
 	}
 
