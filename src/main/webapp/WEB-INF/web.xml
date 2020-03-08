@@ -47,18 +47,18 @@
   	<description></description>
   	<servlet-class>com.yongliang.myservlet.ReimburseServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>MyServlet</servlet-name>
-  	<url-pattern>/MS</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>SecondServlet</servlet-name>
-  	<url-pattern>/SS</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>ThirdServlet</servlet-name>
-  	<url-pattern>/TS</url-pattern>
-  </servlet-mapping>
+  <servlet>
+  	<servlet-name>ReturnEmployeeHome</servlet-name>
+  	<display-name>ReturnEmployeeHome</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.myservlet.ReturnEmployeeHome</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReturnDisplayRequest</servlet-name>
+  	<display-name>ReturnDisplayRequest</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.myservlet.ReturnDisplayRequest</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>EmpLoginServlet</servlet-name>
   	<url-pattern>/ELS</url-pattern>
@@ -74,5 +74,13 @@
   <servlet-mapping>
   	<servlet-name>ReimburseServlet</servlet-name>
   	<url-pattern>/RBS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReturnEmployeeHome</servlet-name>
+  	<url-pattern>/REH</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReturnDisplayRequest</servlet-name>
+  	<url-pattern>/RDR</url-pattern>
   </servlet-mapping>
 </web-app>

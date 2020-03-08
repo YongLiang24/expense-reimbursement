@@ -6,10 +6,11 @@ let timeObj = document.getElementById("time");
 
 $("#personal-info").hide();
 $("#request-card").hide();
+$("#table_").hide();
 clockDisplay();
 nav01.addEventListener('click', function(){
 
-
+	$("#table_").hide();
     $("#personal-info").hide();
     $("#request-card").hide();
     $("#welcome-page").show();
@@ -17,6 +18,7 @@ nav01.addEventListener('click', function(){
 })
 
 nav02.addEventListener('click', function(){
+	$("#table_").hide();
 	$("#personal-info").hide();
     $("#welcome-page").hide();
     $("#request-card").show();
@@ -28,12 +30,13 @@ nav03.addEventListener('click', function(){
 	$("#personal-info").hide();
     $("#welcome-page").hide();
     $("#request-card").hide();
+    $("#table_").show();
 
 })
 
 nav04.addEventListener('click', function(){
 
-   
+	$("#table_").hide();
     $("#welcome-page").hide();
     $("#request-card").hide();
     $("#personal-info").show();

@@ -27,7 +27,7 @@
       <div style="text-align:center;" id="main-home">
       
       <h3 style="font-style: italic;">Expense Reimbursement Solutions</h3>
-      <p style="font-size:130%; font-style:italic;"> - Trusted by millions.</p><hr/>
+      <p style="font-size:130%; font-style:italic;"> - Reimbursement made easy.</p><hr/>
       <form action="ELS" method="POST">
       <button type="submit" class="btn btn-dark">Get Started</button>
       </form>

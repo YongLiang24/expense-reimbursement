@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -91,7 +92,7 @@ public class EmpLoginServlet extends HttpServlet {
 		} catch (SQLException e) {
 		}
 		
-
+		
 		request.getRequestDispatcher("./Login.jsp").forward(request, response);
 		
 	}

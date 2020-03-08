@@ -54,8 +54,12 @@ public class EmployeeHome extends HttpServlet {
 				}
 			}
 			if(isLogin ==false) {
-				out.print("<div style=\"text-align:center;\"><h2>Incorrect username or password</h2> "
+				out.print("<html><body style='background-image: linear-gradient(#fff, #2C5364);\r\n" + 
+						"    background-repeat: no-repeat;\r\n" + 
+						"  	background-attachment: fixed;'>");
+				out.print("<div style='text-align:center;'><h2>Incorrect username or password</h2> "
 						+ "<a href='http://localhost:8080/Project01'>Go Back</a></div>");
+				out.print("</body></html>");
 			}
 			break;
 		case "manager":

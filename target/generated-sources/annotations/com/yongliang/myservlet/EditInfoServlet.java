@@ -1,6 +1,7 @@
 package com.yongliang.myservlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -47,7 +48,8 @@ public class EditInfoServlet extends HttpServlet {
 		String country= request.getParameter("country");
 		String zip = request.getParameter("zip");
 		String empId = request.getParameter("empId");
-			
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
 		try {
 			 conn = DBConnection.getInstance().getConnection();
 		} catch (SQLException e) {
@@ -56,7 +58,18 @@ public class EditInfoServlet extends HttpServlet {
 		String empUpdateQuery = "update employees set full_name='"+fullname+"', telephone='"+phone+"', street='"+street+"', city='"+city+"', state='"+state+"', zip_code='"+zip+"', country='"+country+"' where employee_id="+empId;
 		DBManipulationImp empUpdate = new DBManipulationImp();
 		empUpdate.updateQuery(conn, empUpdateQuery);
-		request.getRequestDispatcher("./Employee.jsp").forward(request, response);
+		
+		out.print("<html><body style='background-image: linear-gradient(#fff, #2C5364);\r\n" + 
+				"    background-repeat: no-repeat;\r\n" + 
+				"  	background-attachment: fixed;'>");
+		out.print("<div style='text-align:center;'>");
+		out.print("<br/><h3>Your profile has updated</h3>");		
+		out.print("<br/>");
+		out.print("<form action='REH' method='POST'> ");
+		out.print("<input type='submit' value='Return' />");
+		out.print("</form>");
+		out.print("</div></body></html>");
+		
 	}
 
 }

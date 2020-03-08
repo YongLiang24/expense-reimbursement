@@ -97,7 +97,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                   <input type="number" value="<%=emp.getZipcode() %>" name="zip" class="body_ text-dark font-weight-bold">
                   <br/>    
                   <input type="hidden" value="<%= emp.getEmpId()%>" name="empId" class="body_ text-dark font-weight-bold">
-                  <input type="submit" id="info-submit" value="Update" class="btn-info font-weight-bold text-dark">
+                  <input type="submit" id="info-submit" value="Update" class="btn-info btn font-weight-bold text-dark">
                 </div>
                 </form>
               </div>
@@ -130,7 +130,20 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                 </div>
       
       
-      
+      <!-- Requsts form -->
+                <div id="table_" class="text-center"></br>             
+                <form action="RDR" method="POST">
+                <input type="radio" value="pending" name="status1" id="pending" checked>
+                <label for="pending" style="font-size: 120%; font-style:italic;">Pending</label>
+                <input type="radio" value="resolved" name="status1" id="resolved">
+                <label for="resolved" style="font-size: 120%; font-style:italic;">Resolved</label>
+                 <input type="radio" value="declined" name="status1" id="declined">
+                <label for="resolved" style="font-size: 120%; font-style:italic;">Declined</label>
+                <hr/>
+                <button type="submit" class="btn btn-dark" style="font-size: 120%; font-style:italic;">Show</button>
+                </form> <br/>
+                </div>
+        
       
       
       

@@ -13,13 +13,14 @@
 .body_{
     background-image: linear-gradient(#fff, #2C5364);
     background-repeat: no-repeat;
-  	background-attachment: fixed;"
+  	background-attachment: fixed;
 }
 
-/* .card:hover{
-    transform: scale(1.1);
-    cursor:pointer;
-} */
+#body_{
+    background-image: linear-gradient(white,white);
+    background-repeat: no-repeat;
+  	background-attachment: fixed;
+}
 
 .login-input, .time{
     text-align: center;

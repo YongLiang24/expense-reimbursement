@@ -27,19 +27,19 @@ public class ReimburseServlet extends HttpServlet {
      */
     public ReimburseServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
 		String expenseSelect = request.getParameter("expense-select");
 		String expenseText = request.getParameter("expense-text");
 		String expenseCost = request.getParameter("expense-cost");
-		String requestStatus = "false";
-		int reimbAmount=0;
+		String requestStatus = "pending";
+		String reimbAmount="pending";
 		Date d1 = new Date();
 		String d2 = d1.toString();
 		String autopk="Autopk1.nextval";
@@ -52,7 +52,18 @@ public class ReimburseServlet extends HttpServlet {
 		//insert new requests to reimbursement table
 		String empInsertQuery = "insert into Reimbursement values("+autopk+","+emp.getEmpId()+", '"+expenseSelect+"' , '"+expenseText+"','"+expenseCost+"','"+requestStatus+"','"+reimbAmount+"','"+d2+"')";
 		DBManipulationImp empUpdate = new DBManipulationImp();
-		empUpdate.updateQuery(conn, empInsertQuery);		
-		request.getRequestDispatcher("./Employee.jsp").forward(request, response);
+		empUpdate.updateQuery(conn, empInsertQuery);
+		out.print("<html><body style='background-image: linear-gradient(#fff, #2C5364);\r\n" + 
+				"    background-repeat: no-repeat;\r\n" + 
+				"  	background-attachment: fixed;'>");
+		out.print("<div style='text-align:center;'>");
+		out.print("<br/><h3>Your reimbursement request has been created</h3>");		
+		out.print("<br/>");
+		out.print("<form action='./REH' method='POST'> ");
+		out.print("<input type='submit' value='Return' />");
+		out.print("</form>");
+		out.print("</div></body></html>");
+
+		//request.getRequestDispatcher("./Employee.jsp").include(request, response);
 	}
 }

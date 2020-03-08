@@ -1,19 +1,19 @@
 package com.yongliang.java;
 
-public class Reimbursement {
+public class Reimbursement implements Comparable<Reimbursement>{
 	private int reimbId, empId;
 	private String expenseType, expenseDescription;
-	private int expenseCost;
+	private String expenseCost;
 	private String requestStatus;
-	private int reimbAmount;
+	private String reimbAmount;
 	private String dateTime;
 	//default constructor
 	public Reimbursement() {
 		super();
 	}
 	//requests creation constructor
-	public Reimbursement(int reimbId, int empId, String expenseType, String expenseDescription, int expenseCost,
-			String requestStatus, int reimbAmount, String dateTime) {
+	public Reimbursement(int reimbId, int empId, String expenseType, String expenseDescription, String expenseCost,
+			String requestStatus, String reimbAmount, String dateTime) {
 		super();
 		this.reimbId = reimbId;
 		this.empId = empId;
@@ -54,10 +54,10 @@ public class Reimbursement {
 	public void setExpenseDescription(String expenseDescription) {
 		this.expenseDescription = expenseDescription;
 	}
-	public int getExpenseCost() {
+	public String getExpenseCost() {
 		return expenseCost;
 	}
-	public void setExpenseCost(int expenseCost) {
+	public void setExpenseCost(String expenseCost) {
 		this.expenseCost = expenseCost;
 	}
 	public String getRequestStatus() {
@@ -66,11 +66,15 @@ public class Reimbursement {
 	public void setRequestStatus(String requestStatus) {
 		this.requestStatus = requestStatus;
 	}
-	public int getReimbAmount() {
+	public String getReimbAmount() {
 		return reimbAmount;
 	}
-	public void setReimbAmount(int reimbAmount) {
+	public void setReimbAmount(String reimbAmount) {
 		this.reimbAmount = reimbAmount;
+	}
+	@Override
+	public int compareTo(Reimbursement user) {
+		return user.reimbId - this.reimbId;
 	}
 	
 	
