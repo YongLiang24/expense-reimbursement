@@ -4,25 +4,19 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>MyServlet</servlet-name>
-  	<display-name>MyServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.yongliang.myservlet.MyServlet</servlet-class>
-  	<load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet>
-  	<servlet-name>SecondServlet</servlet-name>
-  	<display-name>SecondServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.yongliang.myservlet.SecondServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>ThirdServlet</servlet-name>
-  	<display-name>ThirdServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.yongliang.myservlet.ThirdServlet</servlet-class>
-  </servlet>
+  	<servlet>
+		<servlet-name>Jersey REST Service</servlet-name>
+		 <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class> 
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.yongliang.jackson, com.yongliang.java,com.jersey.jaxb,com.fasterxml.jackson.jaxrs.json</param-value>
+		</init-param>
+<!-- 		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param> -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
   <servlet>
   	<servlet-name>EmpLoginServlet</servlet-name>
   	<display-name>EmpLoginServlet</display-name>
@@ -59,6 +53,18 @@
   	<description></description>
   	<servlet-class>com.yongliang.myservlet.ReturnDisplayRequest</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ServletJackson</servlet-name>
+  	<display-name>ServletJackson</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.jackson.ServletJackson</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ServletJson</servlet-name>
+  	<display-name>ServletJson</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.jackson.ServletJackson</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>EmpLoginServlet</servlet-name>
   	<url-pattern>/ELS</url-pattern>
@@ -83,4 +89,17 @@
   	<servlet-name>ReturnDisplayRequest</servlet-name>
   	<url-pattern>/RDR</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletJackson</servlet-name>
+  	<url-pattern>/ServletJackson</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ServletJson</servlet-name>
+  	<url-pattern>/ServletJson</url-pattern>
+  </servlet-mapping>
+  
+  	<servlet-mapping>
+		<servlet-name>Jersey REST Service</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
 </web-app>
