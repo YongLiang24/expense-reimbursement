@@ -54,8 +54,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
     				}				
     			}
     		} catch (SQLException e) {
-    		}      
-    		
+    		}         		
           %>
       <!-- Welcome page -->
             <div id="welcome-page">
