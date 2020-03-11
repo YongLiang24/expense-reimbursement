@@ -141,11 +141,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                 <hr/>
                 <button type="submit" class="btn btn-dark" style="font-size: 120%; font-style:italic;">Show</button>
                 </form> <br/>
-                </div>
-        
-      
-      
-      
+                </div>     
       </div>
 </body>
 </html>

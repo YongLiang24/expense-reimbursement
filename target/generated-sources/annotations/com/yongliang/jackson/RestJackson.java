@@ -32,7 +32,7 @@ public class RestJackson {
 		ResultSet result = select.executeQuery(conn, reimbQuery);
 		try {
 			while(result.next()) {
-				reimb = new Reimbursement(result.getInt(1), result.getInt(2), result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8));
+				reimb = new Reimbursement(result.getInt(1), result.getInt(2), result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8), result.getString(9));
 				reimbList.add(reimb);
 			}
 		} catch (SQLException e) {

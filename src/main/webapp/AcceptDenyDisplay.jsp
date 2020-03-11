@@ -12,14 +12,12 @@ com.yongliang.java.Employee, javax.servlet.http.HttpSession,
 java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
 <title>ER-Solutions</title>
 </head>
-<body id="body_">
+<body>
           <%   
           	ArrayList<Reimbursement> requestList = new ArrayList<Reimbursement>();
-  			Employee empSession = (Employee) session.getAttribute("empInfo");
         	Connection conn = DBConnection.getInstance().getConnection();
-        	int index=0;
-        	boolean isEmptyList =true;
-    		String reimbQuery = "select * from Reimbursement where employee_id="+empSession.getEmpId();
+        	
+    		String reimbQuery = "select * from Reimbursement where status='pending'";
     		DBManipulationImp select = new DBManipulationImp();
     		ResultSet result = select.executeQuery(conn, reimbQuery);   
     		try {
@@ -29,46 +27,53 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
     			}
     		} catch (SQLException e) {
     		} 
-    		Collections.sort(requestList);	 		
+    		Collections.sort(requestList);	 
           %>
-		<div class="text-center">
+          
+          <div class="text-center container-fluid">
 		   
                 <table class="table table-bordered table-hover" >
                     <thead>               
                         <tr >
-                        	<th scope="col">#</th>
+                        	<th scope="col">Employee</th>
                         	<th scope="col">Date</th>      
-                            <th scope="col">Expense Amount</th>
-                            <th scope="col">Reimburse Amount</th>
+                            <th scope="col">Expense</th>                         
                             <th scope="col">Type</th> 
-                            <th scope="col">Status</th>                       
+                            <th scope="col">Reimburse</th>
+                            <th scope="col">Action</th>
+                            <th scope="col">Confirm</th>                       
                         </tr>
                     </thead>
                     <tbody>
                     <% for(Reimbursement reimb: requestList){ 
-                    	index++;                 	
-                    %>
-                    <%if(reimb.getRequestStatus().equals(request.getParameter("status1"))){ 
-                    isEmptyList =false;
+                    	                	
                     %>
                     <tr>
-                    	  <th scope="row" ><%= index %>.</th>
+                    	  <td ><%= reimb.getCreatedBy() %></td>
                           <td title="Reason: <%= reimb.getExpenseDescription()%>"><%=reimb.getDateTime() %></td>
-                          <td><%= reimb.getExpenseCost()%></td>
-                          <td><%= reimb.getReimbAmount()%></td>
-                          <td><%= reimb.getExpenseType()%></td>
-                          <td><%=reimb.getRequestStatus() %></td>                                                    
-                        </tr>   
-                             <%} %>    
+                          <td>$<%= reimb.getExpenseCost()%></td>
+                          <td><%= reimb.getExpenseType()%></td> 
+                          <form action="ADS" method="POST">
+                          <td>$<input name="reimb-amount" type="number" placeholder="<%= reimb.getReimbAmount()%>" min="0" required></td>
+                          <td>
+                          <select name="accept-deny" id="emp-type" required class="bg-light rounded">
+             				<option  value="accpet">Accept</option>
+             				<option  value="deny">Deny</option>
+         				  </select>          
+                          </td>
+                          <td><input type="submit" value="Submit"></td>
+                          </form>                                              
+                        </tr>    
                         <%} %>                   
                       </tbody>
                 </table>
-                 <%if(isEmptyList){ %>
+                 <%if(requestList.isEmpty()){ %>
                         	<p class="text-danger font-italic" style="font-size: 130%;">No reimbursement requests available</p>
                         <%} %>
-             <form action="REH" method="POST">
+             <form action="RMH" method="POST">
                 	<button type="submit" class="btn btn-dark">Return</button>
                 </form>
             </div>
+          
 </body>
 </html>

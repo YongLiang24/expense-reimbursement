@@ -65,6 +65,24 @@
   	<description></description>
   	<servlet-class>com.yongliang.jackson.ServletJackson</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ManageRequestServlet</servlet-name>
+  	<display-name>ManageRequestServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.managerservlet.ManageRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReturnManagerHome</servlet-name>
+  	<display-name>ReturnManagerHome</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.managerservlet.ReturnManagerHome</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AcceptDenyServlet</servlet-name>
+  	<display-name>AcceptDenyServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.managerservlet.AcceptDenyServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>EmpLoginServlet</servlet-name>
   	<url-pattern>/ELS</url-pattern>
@@ -102,4 +120,16 @@
 		<servlet-name>Jersey REST Service</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
+  	<servlet-mapping>
+  		<servlet-name>ManageRequestServlet</servlet-name>
+  		<url-pattern>/MRS</url-pattern>
+  	</servlet-mapping>
+  	<servlet-mapping>
+  		<servlet-name>ReturnManagerHome</servlet-name>
+  		<url-pattern>/RMH</url-pattern>
+  	</servlet-mapping>
+  	<servlet-mapping>
+  		<servlet-name>AcceptDenyServlet</servlet-name>
+  		<url-pattern>/ADS</url-pattern>
+  	</servlet-mapping>
 </web-app>

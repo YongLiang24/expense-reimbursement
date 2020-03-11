@@ -7,13 +7,20 @@ public class Reimbursement implements Comparable<Reimbursement>{
 	private String requestStatus;
 	private String reimbAmount;
 	private String dateTime;
+	private String createdBy;
+	public String getCreatedBy() {
+		return createdBy;
+	}
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
 	//default constructor
 	public Reimbursement() {
 		super();
 	}
 	//requests creation constructor
 	public Reimbursement(int reimbId, int empId, String expenseType, String expenseDescription, String expenseCost,
-			String requestStatus, String reimbAmount, String dateTime) {
+			String requestStatus, String reimbAmount, String dateTime, String createdBy) {
 		super();
 		this.reimbId = reimbId;
 		this.empId = empId;
@@ -23,6 +30,8 @@ public class Reimbursement implements Comparable<Reimbursement>{
 		this.requestStatus = requestStatus;
 		this.reimbAmount = reimbAmount;
 		this.dateTime = dateTime;
+		this.createdBy = createdBy;
+		
 	}
 	public String getDateTime() {
 		return dateTime;

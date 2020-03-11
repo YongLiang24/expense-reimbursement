@@ -45,12 +45,13 @@ public class ReimburseServlet extends HttpServlet {
 		String autopk="Autopk1.nextval";
 		HttpSession session = request.getSession();
 		Employee emp =(Employee)session.getAttribute("empInfo");
+		System.out.println(emp.getFullName());
 		try {
 			 conn = DBConnection.getInstance().getConnection();
 		} catch (SQLException e) {
 		}
 		//insert new requests to reimbursement table
-		String empInsertQuery = "insert into Reimbursement values("+autopk+","+emp.getEmpId()+", '"+expenseSelect+"' , '"+expenseText+"','"+expenseCost+"','"+requestStatus+"','"+reimbAmount+"','"+d2+"')";
+		String empInsertQuery = "insert into Reimbursement values("+autopk+","+emp.getEmpId()+", '"+expenseSelect+"' , '"+expenseText+"','"+expenseCost+"','"+requestStatus+"','"+reimbAmount+"','"+d2+"', '"+emp.getFullName()+"')";
 		DBManipulationImp empUpdate = new DBManipulationImp();
 		empUpdate.updateQuery(conn, empInsertQuery);
 		out.print("<html><body style='background-image: linear-gradient(#fff, #2C5364);\r\n" + 

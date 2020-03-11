@@ -39,7 +39,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
     </div>
       </nav>
       <!--Main Content  -->
-      <div class="container" style="margin-top: 55px;">
+      <div class="container-fluid" style="margin-top: 55px;">
                       <%        
   			Employee empSession = (Employee) session.getAttribute("empInfo");
         	Connection conn = DBConnection.getInstance().getConnection();
@@ -53,29 +53,53 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
     						
     			}
     		} catch (SQLException e) {
-    		} 
-    		
-    		
-    		
+    		}  		
           %>
-         
+         <!--Welcome Page  -->
       	    <div id="welcome-page">
             <br/><br/>
                 <h2 class="time">Welcome admin</h2><br/>
                 <h2 class="time" id="time" ></h2><br/><hr/>
                 <h5 class="time">What would you like to do today?</h3>
             </div>
-      	
+           
+           <!--Show Reimbursement  --> 
+            <div id="reimb-table">        
+            <div class="text-center">
+		   <br/>
+		   <form id="request-filter">
+		   Filter: <a ref="" class="invisible">x</a>
+		   	<input type="radio" id="approve" name="resolved" value="approve">
+  			<label for="approve">Approved</label>
+  			<input type="radio" id="reject" name="resolved" value="reject">
+  			<label for="reject">Rejected</label><br>
+		   </form>
+                <table class="table table-bordered table-hover" >
+                    <thead >               
+                        <tr >
+                        	<th scope="col">Created By</th>
+                        	<th scope="col">Date</th>      
+                            <th scope="col">Expense Amount</th>
+                            <th scope="col">Reimb Amount</th>
+                            <th scope="col">Reason</th> 
+                            <th scope="col">Status</th>                       
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">                                          
+                    </tbody>
+                </table>
+            </div>
+      	</div>
+  
+  <!--Manage Request Section  -->
+  <div class="text-center" id="manage-request">
+  <br/>
+  <form action="MRS" method="POST">
+  	<input type="submit" value="Display Requests">
+  </form>
+  </div>
+  
       
-      </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
+      </div>   
 </body>
 </html>
