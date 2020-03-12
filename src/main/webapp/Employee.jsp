@@ -34,8 +34,8 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
             <a ref="" class="invisible">xxx</a>
             <li class="nav-item" id="navli04"><a class="nav-link" href="#" id="nav04">My Profile</a></li>
           </ul>
-          <form>
-          <button class="btn btn-dark" type="submit" id="logout">Logout</button>
+          <form action="ELSS"  method="POST">
+          <button class="btn btn-dark" type="submit" id="emp-logout" style="font-style: italic">Logout</button>
           </form>
           
           
@@ -138,9 +138,9 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                 <form action="RDR" method="POST">
                 <input type="radio" value="pending" name="status1" id="pending" checked>
                 <label for="pending" style="font-size: 120%; font-style:italic;">Pending</label>
-                <input type="radio" value="resolved" name="status1" id="resolved">
+                <input type="radio" value="accpet" name="status1" id="resolved">
                 <label for="resolved" style="font-size: 120%; font-style:italic;">Accepted</label>
-                 <input type="radio" value="declined" name="status1" id="declined">
+                 <input type="radio" value="deny" name="status1" id="declined">
                 <label for="resolved" style="font-size: 120%; font-style:italic;">Denied</label>
                 <hr/>
                 <button type="submit" class="btn btn-dark" style="font-size: 120%; font-style:italic;">Show</button>

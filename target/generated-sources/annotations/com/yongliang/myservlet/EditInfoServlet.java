@@ -59,9 +59,7 @@ public class EditInfoServlet extends HttpServlet {
 		DBManipulationImp empUpdate = new DBManipulationImp();
 		empUpdate.updateQuery(conn, empUpdateQuery);
 		
-		out.print("<html><body style='background-image: linear-gradient(#fff, #2C5364);\r\n" + 
-				"    background-repeat: no-repeat;\r\n" + 
-				"  	background-attachment: fixed;'>");
+		out.print("<html><body>");
 		out.print("<div style='text-align:center;'>");
 		out.print("<br/><h3>Your profile has been updated</h3>");		
 		out.print("<br/>");

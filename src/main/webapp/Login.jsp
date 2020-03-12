@@ -27,7 +27,7 @@
              <option  value="employee">Employee</option>
              <option  value="manager">Manager</option>
          </select><hr/>
-         <button type="submit" class="btn btn-primary btn-sm btn-block">Log in</button>
+         <button type="submit" class="btn btn-primary btn-sm btn-block" title="admin/123, email/123">Log in</button>
         </form>
     </div>
   </div>

@@ -34,7 +34,9 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
             <a ref="" class="invisible">xxx</a>
             <li class="nav-item" id="navli04"><a class="nav-link" href="#" id="nav04">View Employees</a></li>
           </ul>
-          <button class="btn btn-dark" ><a class="nav-link" href="http://localhost:8081/Project01" id="logout">Logout</a></button>
+          <form action="ELSS"  method="POST">
+          <button class="btn btn-dark" type="submit" id="emp-logout" style="font-style: italic">Logout</button>
+          </form>
         </div>
     </div>
       </nav>

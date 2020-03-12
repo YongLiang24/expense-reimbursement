@@ -79,6 +79,18 @@
   	<description></description>
   	<servlet-class>com.yongliang.managerservlet.AcceptDenyServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>EmpLogoutServlet</servlet-name>
+  	<display-name>EmpLogoutServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.myservlet.EmpLogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MainHomeServlet</servlet-name>
+  	<display-name>MainHomeServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.yongliang.managerservlet.MainHomeServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>EmpLoginServlet</servlet-name>
   	<url-pattern>/ELS</url-pattern>
@@ -127,5 +139,13 @@
   	<servlet-mapping>
   		<servlet-name>AcceptDenyServlet</servlet-name>
   		<url-pattern>/ADS</url-pattern>
+  	</servlet-mapping>
+  	<servlet-mapping>
+  		<servlet-name>EmpLogoutServlet</servlet-name>
+  		<url-pattern>/ELSS</url-pattern>
+  	</servlet-mapping>
+  	<servlet-mapping>
+  		<servlet-name>MainHomeServlet</servlet-name>
+  		<url-pattern>/MHSS</url-pattern>
   	</servlet-mapping>
 </web-app>

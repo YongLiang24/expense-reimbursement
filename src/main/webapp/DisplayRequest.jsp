@@ -29,7 +29,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
     			}
     		} catch (SQLException e) {
     		} 
-    		Collections.sort(requestList);	 		
+    		Collections.sort(requestList);	 
           %>
 		<div class="text-center">
 		   
@@ -46,7 +46,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                     </thead>
                     <tbody>
                     <% for(Reimbursement reimb: requestList){ 
-                    	index++;                 	
+                    	index++;      
                     %>
                     <%if(reimb.getRequestStatus().equals(request.getParameter("status1"))){ 
                     isEmptyList =false;

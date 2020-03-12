@@ -87,10 +87,6 @@ public class EmpLoginServlet extends HttpServlet {
 		session.setAttribute("managerAll", managerList);
 
 		logger.info("adds employee and manager lists to session variables");
-		try {
-			conn.close();
-		} catch (SQLException e) {
-		}
 		
 		
 		request.getRequestDispatcher("./Login.jsp").forward(request, response);

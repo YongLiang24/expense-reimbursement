@@ -11,7 +11,7 @@
 }
 
 .body_{
-    background-image: linear-gradient(#fff, #2C5364);
+    /* background-image: linear-gradient(#fff, #2C5364); */
     background-repeat: no-repeat;
   	background-attachment: fixed;
 }

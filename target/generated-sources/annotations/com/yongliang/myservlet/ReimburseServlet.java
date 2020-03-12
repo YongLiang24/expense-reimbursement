@@ -55,9 +55,7 @@ public class ReimburseServlet extends HttpServlet {
 		DBManipulationImp empUpdate = new DBManipulationImp();
 		empUpdate.updateQuery(conn, empInsertQuery);
 		if(DBManipulationImp.connStatus ==1) {
-		out.print("<html><body style='background-image: linear-gradient(#fff, #2C5364);\r\n" + 
-				"    background-repeat: no-repeat;\r\n" + 
-				"  	background-attachment: fixed;'>");
+		out.print("<html><body>");
 		out.print("<div style='text-align:center;'>");
 		out.print("<br/><h3>Your reimbursement request has been created</h3>");		
 		out.print("<br/>");
@@ -66,9 +64,7 @@ public class ReimburseServlet extends HttpServlet {
 		out.print("</form>");
 		out.print("</div></body></html>");
 		}else {
-			out.print("<html><body style='background-image: linear-gradient(#fff, #2C5364);\r\n" + 
-					"    background-repeat: no-repeat;\r\n" + 
-					"  	background-attachment: fixed;'>");
+			out.print("<html><body>");
 			out.print("<div style='text-align:center;'>");
 			out.print("<br/><h3>Error occured, your request was not submitted</h3>");		
 			out.print("<br/>");
