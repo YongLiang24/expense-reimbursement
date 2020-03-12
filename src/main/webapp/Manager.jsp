@@ -90,7 +90,48 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                 </table>
             </div>
       	</div>
+      	
+      	<!--Show All Employees  --> 
+            <div id="emp-table">        
+            <div class="text-center">
+		   <br/>
+                <table class="table table-bordered table-hover" >
+                    <thead >               
+                        <tr >
+                        	<th scope="col">ID</th>
+                        	<th scope="col">Name</th>      
+                            <th scope="col">Phone</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">View Requests</th>                       
+                        </tr>
+                    </thead>
+                    <tbody id="empTable-body">                                          
+                    </tbody>
+                </table>
+            </div>
+      	</div>
+
   
+  <!-- Modal -->
+<div class="modal fade " id="view-modal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="modal-title" id="Modal-Label">My Reimbursements</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body container" id="modal_">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Dismiss</button>
+      </div>
+    </div>
+  </div>
+</div>
   <!--Manage Request Section  -->
   <div class="text-center" id="manage-request">
   <br/>

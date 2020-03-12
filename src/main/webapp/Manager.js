@@ -5,29 +5,26 @@ let nav04 =document.getElementById("nav04");
 let timeObj = document.getElementById("time");
 let reimbTable = document.getElementById("reimb-table");
 let tableBody = document.getElementById("table-body");
+let empTable = document.getElementById("empTable-body");
 let requestFilter = document.getElementById("request-filter");
 let reimbObj;
+let empObj;
+let modalBody = document.getElementById("modal_");
 const reimbURL = "http://localhost:8081/Project01/rest/reim/1";
+const empURL = "http://localhost:8081/Project01/rest/emp/1";
+//fetching reimbursement requests details
 
-fetch("http://localhost:8081/Project01/rest/reim/2")
-.then((response)=>{
-	return response.json();
-})
-.then((jsonData)=>{
-	reimbObj = jsonData;
-	displayRequest(reimbObj);
-})
+setTimeout(onStart(), 5000);
+setTimeout(onStart(), 2000);
 
 $("#reimb-table").hide();
 $("#manage-request").hide();
+$("#emp-table").hide();
 clockDisplay();
 
 requestFilter.addEventListener('click', ()=>{
-	
-	let radioChoice = $('input[name="resolved"]:checked').val();
-	
-	switch(radioChoice){
-		
+	let radioChoice = $('input[name="resolved"]:checked').val();	
+	switch(radioChoice){		
 		case "approve":
 				let obj1 = reimbObj.filter(status =>{
 				return status.requestStatus == "accpet"});
@@ -40,39 +37,101 @@ requestFilter.addEventListener('click', ()=>{
 			break;
 		default:
 			break;
-	}
-		
+	}		
 })
 
 
 nav01.addEventListener('click', ()=>{
 	$("#reimb-table").hide();
 	$("#manage-request").hide();
+	$("#emp-table").hide();
 	$("#welcome-page").show();
 })
 
 
 nav02.addEventListener('click', ()=>{
+	onStart();
 	$("#welcome-page").hide();
 	$("#reimb-table").hide();
+	$("#emp-table").hide();
 	$("#manage-request").show();
 })
 
 
 nav03.addEventListener('click', ()=>{
+	onStart();
 	$("#welcome-page").hide();
 	$("#manage-request").hide();
+	$("#emp-table").hide();
 	displayRequest(reimbObj);
+
 	$("#reimb-table").show();
 	
 })
 
 
 nav04.addEventListener('click', ()=>{
+	onStart();
 	$("#welcome-page").hide();
 	$("#reimb-table").hide();
 	$("#manage-request").hide();
+	displayEmployee(empObj);
+	$("#emp-table").show();
 })
+
+function displayEmployee(empObj){
+	$("#empTable-body").children().remove();
+	for(emp of empObj){
+		let tableRow = document.createElement("tr");
+		let empId = document.createElement("td");
+		let empName = document.createElement("td");
+		let empPhone = document.createElement("td");
+		let empEmail = document.createElement("td");
+		let empAddress = document.createElement("td");
+		let empButton = document.createElement("input");
+		
+		empButton.setAttribute("value","view");
+		empButton.setAttribute("title","view my requests");
+		empButton.setAttribute("type","button");
+		empButton.setAttribute("style","margin-top: 10px;");
+		empButton.setAttribute("id",emp.empId);
+		empButton.setAttribute("data-toggle","modal");
+		empButton.setAttribute("data-target","#view-modal");
+		
+		empId.innerText= emp.empId;
+		empName.innerText= emp.fullName;
+		empPhone.innerText = emp.telephone;
+		empEmail.innerText = emp.email;
+		empAddress.innerText =`${emp.street}, ${emp.city}, ${emp.state}, ${emp.zipcode}, ${emp.country}`;
+		tableRow.appendChild(empId);
+		tableRow.appendChild(empName);
+		tableRow.appendChild(empPhone);
+		tableRow.appendChild(empEmail);
+		tableRow.appendChild(empAddress);
+		tableRow.appendChild(empButton);
+		empTable.appendChild(tableRow);	
+		
+		empButton.addEventListener('click', (ev)=>{
+			$("#modal_").children().remove();
+			let orderList = document.createElement("ol");
+			
+			orderList.setAttribute("class","list-group");
+			for(reimb of reimbObj.reverse()){			
+				if(reimb.empId == ev.target.id){
+					let viewLi = document.createElement("li");
+					viewLi.setAttribute("title", `Reason: ${reimb.expenseDescription}, Reimburse: $${reimb.reimbAmount}, Type: ${reimb.expenseType}`);
+					viewLi.setAttribute("class","list-group-item");
+					viewLi.innerText =`CreatedBy: ${reimb.createdBy} | Date: ${reimb.dateTime} | Expense: $${reimb.expenseCost} | Status: ${reimb.requestStatus}`;				
+					orderList.appendChild(viewLi);				
+					modal_.appendChild(orderList);				
+				}
+			}
+		})
+		
+
+	}
+}
+
 
 
 function displayRequest(reimbObj){	
@@ -85,12 +144,7 @@ function displayRequest(reimbObj){
 		let reimbCost = document.createElement("td");
 		let reason = document.createElement("td");
 		let status = document.createElement("td");
-		createdBy.innerText ="";
-		createdDate.innerText="";
-		expense.innerText="";
-		reimbCost.innerText="";
-		reason.innerText="";
-		status.innerText="";
+
 		createdBy.innerText = reimb.createdBy;
 		createdDate.innerText = reimb.dateTime;
 		expense.innerText= "$"+reimb.expenseCost;
@@ -107,7 +161,25 @@ function displayRequest(reimbObj){
 	}	 
 }
 
-
+function onStart(){
+	fetch(reimbURL)
+	.then((response)=>{
+		return response.json();
+	})
+	.then((jsonData)=>{
+		reimbObj = jsonData;
+		displayRequest(reimbObj);
+	})
+	//fetching employee details
+	fetch(empURL)
+	.then((response)=>{
+		return response.json();
+	})
+	.then((jsonData)=>{
+		empObj = jsonData;
+	})
+	
+}
 //clock display
 function addZero(t) {
     if (t < 10) {

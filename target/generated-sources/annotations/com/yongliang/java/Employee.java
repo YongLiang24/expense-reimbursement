@@ -44,6 +44,19 @@ public class Employee {
 		this.zipcode = zipcode;
 		this.country = country;
 	}
+	public Employee(int empId,  String fullName, String telephone, String email, String street,
+			String city, String state, String zipcode, String country) {
+		super();
+		this.empId = empId;
+		this.fullName = fullName;
+		this.telephone = telephone;
+		this.email = email;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+		this.country = country;
+	}
 	
 	public int getEmpId() {
 		return empId;

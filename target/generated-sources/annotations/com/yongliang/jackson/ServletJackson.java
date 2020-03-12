@@ -30,6 +30,8 @@ public class ServletJackson extends HttpServlet {
 		
 		Client client = ClientBuilder.newClient();
 		WebTarget webTarget = client.target("http://localhost:8081/Project01/rest").path("reim").path("1");
+		
+		WebTarget webTarget1 = client.target("http://localhost:8081/Project01/rest").path("emp").path("1");
 	}
 
 	/**

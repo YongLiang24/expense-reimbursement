@@ -34,7 +34,11 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
             <a ref="" class="invisible">xxx</a>
             <li class="nav-item" id="navli04"><a class="nav-link" href="#" id="nav04">My Profile</a></li>
           </ul>
-          <button class="btn btn-dark" ><a class="nav-link" href="http://localhost:8081/Project01" id="logout">Logout</a></button>
+          <form>
+          <button class="btn btn-dark" type="submit" id="logout">Logout</button>
+          </form>
+          
+          
         </div>
     </div>
       </nav>
@@ -61,7 +65,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
             <br/><br/>
                 <h2 class="time">Welcome <%=emp.getFullName() %></h2><br/>
                 <h2 class="time" id="time" ></h2><br/><hr/>
-                <h5 class="time">What would you like to do today?</h3>
+                <h5 class="time">What would you like to do today?</h5>
             </div>
             
       <!-- Personal Information -->
