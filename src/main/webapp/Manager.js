@@ -7,9 +7,9 @@ let reimbTable = document.getElementById("reimb-table");
 let tableBody = document.getElementById("table-body");
 let requestFilter = document.getElementById("request-filter");
 let reimbObj;
-const reimbURL = "http://localhost:8080/Project01/rest/reim/1";
+const reimbURL = "http://localhost:8081/Project01/rest/reim/1";
 
-fetch(reimbURL)
+fetch("http://localhost:8081/Project01/rest/reim/2")
 .then((response)=>{
 	return response.json();
 })
@@ -25,6 +25,22 @@ clockDisplay();
 requestFilter.addEventListener('click', ()=>{
 	
 	let radioChoice = $('input[name="resolved"]:checked').val();
+	
+	switch(radioChoice){
+		
+		case "approve":
+				let obj1 = reimbObj.filter(status =>{
+				return status.requestStatus == "accpet"});
+			displayRequest(obj1);
+			break;
+		case "reject":
+			let obj2 = reimbObj.filter(status =>{
+				return status.requestStatus == "deny"});
+			displayRequest(obj2);
+			break;
+		default:
+			break;
+	}
 		
 })
 
@@ -46,6 +62,7 @@ nav02.addEventListener('click', ()=>{
 nav03.addEventListener('click', ()=>{
 	$("#welcome-page").hide();
 	$("#manage-request").hide();
+	displayRequest(reimbObj);
 	$("#reimb-table").show();
 	
 })
@@ -58,9 +75,8 @@ nav04.addEventListener('click', ()=>{
 })
 
 
-function displayRequest(reimbObj){
-
-	
+function displayRequest(reimbObj){	
+	$("#table-body").children().remove();
 	for(let reimb of reimbObj){	
 		let tableRow = document.createElement("tr");
 		let createdBy = document.createElement("td");
@@ -69,13 +85,18 @@ function displayRequest(reimbObj){
 		let reimbCost = document.createElement("td");
 		let reason = document.createElement("td");
 		let status = document.createElement("td");
+		createdBy.innerText ="";
+		createdDate.innerText="";
+		expense.innerText="";
+		reimbCost.innerText="";
+		reason.innerText="";
+		status.innerText="";
 		createdBy.innerText = reimb.createdBy;
 		createdDate.innerText = reimb.dateTime;
-		expense.innerText= reimb.expenseCost;
-		reimbCost.innerText = reimb.reimbAmount;
+		expense.innerText= "$"+reimb.expenseCost;
+		reimbCost.innerText = "$"+reimb.reimbAmount;
 		reason.innerText = reimb.expenseDescription;
-		status.innerText = reimb.requestStatus;
-		
+		status.innerText = reimb.requestStatus;		
 		tableRow.appendChild(createdBy);
 		tableRow.appendChild(createdDate);
 		tableRow.appendChild(expense);
@@ -83,8 +104,7 @@ function displayRequest(reimbObj){
 		tableRow.appendChild(reason);
 		tableRow.appendChild(status);	
 		tableBody.appendChild(tableRow);
-	}
-	 
+	}	 
 }
 
 

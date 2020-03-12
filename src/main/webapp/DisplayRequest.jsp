@@ -54,8 +54,8 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                     <tr>
                     	  <th scope="row" ><%= index %>.</th>
                           <td title="Reason: <%= reimb.getExpenseDescription()%>"><%=reimb.getDateTime() %></td>
-                          <td><%= reimb.getExpenseCost()%></td>
-                          <td><%= reimb.getReimbAmount()%></td>
+                          <td>$<%= reimb.getExpenseCost()%></td>
+                          <td>$<%= reimb.getReimbAmount()%></td>
                           <td><%= reimb.getExpenseType()%></td>
                           <td><%=reimb.getRequestStatus() %></td>                                                    
                         </tr>   

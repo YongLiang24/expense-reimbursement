@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBManipulationImp implements DBManipulationDao{
-
+	public static int connStatus=0;
 	@Override
 	public ResultSet executeQuery(Connection conn, String query) {
 		ResultSet tempResult=null;
@@ -33,6 +33,7 @@ public class DBManipulationImp implements DBManipulationDao{
 			preSt=conn.prepareStatement(query);
 			int checkUpdate =preSt.executeUpdate();
 			System.out.println("UpdateQuery status:" +checkUpdate);
+			connStatus =1;
 		} catch (SQLException e) {
 			System.out.println("update failed");
 		}

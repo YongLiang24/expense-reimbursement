@@ -62,6 +62,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
          				  </select>          
                           </td>
                           <td><input type="submit" value="Submit"></td>
+                          <input type="hidden" name="reimb-id" value="<%= reimb.getReimbId()%> ">
                           </form>                                              
                         </tr>    
                         <%} %>                   

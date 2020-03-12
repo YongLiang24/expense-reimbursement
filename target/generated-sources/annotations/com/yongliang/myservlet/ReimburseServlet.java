@@ -54,6 +54,7 @@ public class ReimburseServlet extends HttpServlet {
 		String empInsertQuery = "insert into Reimbursement values("+autopk+","+emp.getEmpId()+", '"+expenseSelect+"' , '"+expenseText+"','"+expenseCost+"','"+requestStatus+"','"+reimbAmount+"','"+d2+"', '"+emp.getFullName()+"')";
 		DBManipulationImp empUpdate = new DBManipulationImp();
 		empUpdate.updateQuery(conn, empInsertQuery);
+		if(DBManipulationImp.connStatus ==1) {
 		out.print("<html><body style='background-image: linear-gradient(#fff, #2C5364);\r\n" + 
 				"    background-repeat: no-repeat;\r\n" + 
 				"  	background-attachment: fixed;'>");
@@ -64,7 +65,19 @@ public class ReimburseServlet extends HttpServlet {
 		out.print("<input type='submit' value='Return' />");
 		out.print("</form>");
 		out.print("</div></body></html>");
-
+		}else {
+			out.print("<html><body style='background-image: linear-gradient(#fff, #2C5364);\r\n" + 
+					"    background-repeat: no-repeat;\r\n" + 
+					"  	background-attachment: fixed;'>");
+			out.print("<div style='text-align:center;'>");
+			out.print("<br/><h3>Error occured, your request was not submitted</h3>");		
+			out.print("<br/>");
+			out.print("<form action='./REH' method='POST'> ");
+			out.print("<input type='submit' value='Return' />");
+			out.print("</form>");
+			out.print("</div></body></html>");
+			
+		}
 		//request.getRequestDispatcher("./Employee.jsp").include(request, response);
 	}
 }

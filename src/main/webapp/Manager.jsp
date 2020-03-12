@@ -34,7 +34,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
             <a ref="" class="invisible">xxx</a>
             <li class="nav-item" id="navli04"><a class="nav-link" href="#" id="nav04">View Employees</a></li>
           </ul>
-          <button class="btn btn-dark" ><a class="nav-link" href="http://localhost:8080/Project01" id="logout">Logout</a></button>
+          <button class="btn btn-dark" ><a class="nav-link" href="http://localhost:8081/Project01" id="logout">Logout</a></button>
         </div>
     </div>
       </nav>
@@ -72,7 +72,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
 		   	<input type="radio" id="approve" name="resolved" value="approve">
   			<label for="approve">Approved</label>
   			<input type="radio" id="reject" name="resolved" value="reject">
-  			<label for="reject">Rejected</label><br>
+  			<label for="reject">Denied</label><br>
 		   </form>
                 <table class="table table-bordered table-hover" >
                     <thead >               

@@ -29,7 +29,7 @@ public class ServletJackson extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Client client = ClientBuilder.newClient();
-		WebTarget webTarget = client.target("http://localhost:8080/Project01/rest").path("reim").path("1");
+		WebTarget webTarget = client.target("http://localhost:8081/Project01/rest").path("reim").path("1");
 	}
 
 	/**

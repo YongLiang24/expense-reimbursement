@@ -34,7 +34,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
             <a ref="" class="invisible">xxx</a>
             <li class="nav-item" id="navli04"><a class="nav-link" href="#" id="nav04">My Profile</a></li>
           </ul>
-          <button class="btn btn-dark" ><a class="nav-link" href="http://localhost:8080/Project01" id="logout">Logout</a></button>
+          <button class="btn btn-dark" ><a class="nav-link" href="http://localhost:8081/Project01" id="logout">Logout</a></button>
         </div>
     </div>
       </nav>
@@ -114,7 +114,7 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                          <option value="travel">Travel</option>
                          <option value="lodging">Lodging</option>
                          <option value="meals">Meals</option>
-                         <option value="certification">Certification</option>
+                         <option value="certif">Certification</option>
                          <option value="other">Other</option>
                      </select><hr/>
                      <label for="spent-reason" class="login-input" ><strong>1. What did you spend on?</strong></label>
@@ -135,9 +135,9 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                 <input type="radio" value="pending" name="status1" id="pending" checked>
                 <label for="pending" style="font-size: 120%; font-style:italic;">Pending</label>
                 <input type="radio" value="resolved" name="status1" id="resolved">
-                <label for="resolved" style="font-size: 120%; font-style:italic;">Resolved</label>
+                <label for="resolved" style="font-size: 120%; font-style:italic;">Accepted</label>
                  <input type="radio" value="declined" name="status1" id="declined">
-                <label for="resolved" style="font-size: 120%; font-style:italic;">Declined</label>
+                <label for="resolved" style="font-size: 120%; font-style:italic;">Denied</label>
                 <hr/>
                 <button type="submit" class="btn btn-dark" style="font-size: 120%; font-style:italic;">Show</button>
                 </form> <br/>

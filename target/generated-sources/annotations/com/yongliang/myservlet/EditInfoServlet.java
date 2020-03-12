@@ -63,7 +63,7 @@ public class EditInfoServlet extends HttpServlet {
 				"    background-repeat: no-repeat;\r\n" + 
 				"  	background-attachment: fixed;'>");
 		out.print("<div style='text-align:center;'>");
-		out.print("<br/><h3>Your profile has updated</h3>");		
+		out.print("<br/><h3>Your profile has been updated</h3>");		
 		out.print("<br/>");
 		out.print("<form action='REH' method='POST'> ");
 		out.print("<input type='submit' value='Return' />");
