@@ -125,8 +125,8 @@ java.util.ArrayList, java.sql.Connection, com.yongliang.java.*" %>
                      <textarea name="expense-text" maxlength="200" rows="4" id="spent-reason" class="form-control" placeholder="200 characters max" required></textarea>
                      <label for="cost" class="login-input"><strong> How much did you spend?</strong></label>
                      <input name="expense-cost" type="number" min="0" id="cost"class="form-control" required placeholder="Amount"><br/>
-<!--                      <label for="file-attachment" class="font-weight-bold">Receipt</label> -->
-<!--                      <input type="file" class="form-control-file" id="file-attachment"><br/> -->
+                    <!--  <label for="file-attachment" class="font-weight-bold">Receipt</label>
+                     <input type="file" class="form-control-file"  name="photo" size="50"><br/> -->
                      <button type="submit" class="btn btn-primary btn-sm btn-block">Submit</button>
                     </form>
                 </div>

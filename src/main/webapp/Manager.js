@@ -127,8 +127,6 @@ function displayEmployee(empObj){
 				}
 			}
 		})
-		
-
 	}
 }
 

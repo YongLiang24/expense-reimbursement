@@ -1,6 +1,7 @@
 package com.yongliang.myservlet;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -45,13 +46,13 @@ public class ReimburseServlet extends HttpServlet {
 		String autopk="Autopk1.nextval";
 		HttpSession session = request.getSession();
 		Employee emp =(Employee)session.getAttribute("empInfo");
-		System.out.println(emp.getFullName());
 		try {
 			 conn = DBConnection.getInstance().getConnection();
 		} catch (SQLException e) {
 		}
 		//insert new requests to reimbursement table
-		String empInsertQuery = "insert into Reimbursement values("+autopk+","+emp.getEmpId()+", '"+expenseSelect+"' , '"+expenseText+"','"+expenseCost+"','"+requestStatus+"','"+reimbAmount+"','"+d2+"', '"+emp.getFullName()+"')";
+		System.out.println(expenseSelect+"  :  "+expenseCost);
+		String empInsertQuery = "insert into Reimbursement values("+autopk+","+emp.getEmpId()+", '"+expenseSelect+"' , '"+expenseText+"','"+expenseCost+"','"+requestStatus+"','"+reimbAmount+"','"+d2+"', '"+emp.getFullName()+"')";		
 		DBManipulationImp empUpdate = new DBManipulationImp();
 		empUpdate.updateQuery(conn, empInsertQuery);
 		if(DBManipulationImp.connStatus ==1) {
